@@ -1,0 +1,58 @@
+15-03-2025
+
+learned about basics of html and css
+what is web programming
+used img/table/list.
+created an resume 
+
+18-03-2025
+
+basic structure of html 
+learned css and types of css
+1] inline 
+2] internal
+3] external
+styling to resume 
+
+24-03-2025
+
+basic structure of html 
+learned css and types of css
+1] inline 
+2] internal
+3] external
+styling to resume 
+
+29-03-2025
+
+lecture dedicated for finalizing topics for web project 
+final topic -Croewd source problem solving platform 
+
+05-04-2025
+
+assembled the structure for website 
+
+
+	1] home page 
+
+	** nav bar [contains userprofile, searchbar, menu, post button] **
+		1] user profile
+		2] search bar
+		3] menu
+		4] post button
+
+	** three sections **
+		1] one which shows the top problems /recent problems
+		2] one which highlights taged problems 
+		3] and last one shows his last contribution 
+
+	2] user profile page
+
+	** 
+
+
+
+
+
+
+
