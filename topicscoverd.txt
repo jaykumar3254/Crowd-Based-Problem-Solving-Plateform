@@ -48,7 +48,7 @@ assembled the structure for website
 
 	2] user profile page
 
-	** 
+	** user dashboard 
 
 
 
