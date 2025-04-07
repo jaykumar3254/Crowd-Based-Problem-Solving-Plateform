@@ -1,0 +1,98 @@
+body{
+    margin: 0;
+    background-color:rgb(1,4,9);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 27px;
+    padding: 20px;
+    background-color: rgb(1,4,9);
+    border-bottom: 0.5px solid rgb(61, 68, 78);
+}
+.searchbar{
+    background-color: transparent;
+    width: 300px;
+    padding: 5px;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: lighter;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-style: italic;
+    padding-left: 15px;
+    border: 1px solid rgb(61, 68, 78);
+    border-radius: 5px;
+}
+.searchbar:focus{
+    outline: none;
+    border-color: #006aff;
+    border-width: 2px;
+}
+.postcontainer-right{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.post{
+    background-color: red;
+    padding: 5px;
+    width: 80px;
+    border-width: 1px;
+    border-color: rgb(255, 56, 56);
+    border-radius: 5px;
+    font-size: 14px;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #ffffff;
+}
+.container{
+    display: flex;
+    height: 100vh;
+}
+.topproblems{
+    width: 20%;
+    background-color:rgb(13,16,23);
+    border-right: 1px solid rgb(61, 68, 78);
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 20px;
+}
+.menu-icon {
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(61, 68, 78); /* Border color from image */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .menu-icon span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: rgb(61, 68, 78); /* Line color from image */
+    border-radius: 1px;
+  }
+  .profile{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+.con1{
+    align-items: center;
+}
+.logo{
+    position: relative;
+    width: 40px;
+    padding-left: 50px;
+    margin-top: -40px;
+}
