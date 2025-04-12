@@ -96,3 +96,9 @@ body{
     padding-left: 50px;
     margin-top: -40px;
 }
+
+.tags{
+    position: absolute;
+    left: 20%;
+    
+}
