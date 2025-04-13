@@ -102,6 +102,9 @@ body {
     background-color:rgb(1,4,9);
     color: white;
   }
+  body::-webkit-scrollbar {
+    display: none; 
+}
   
   .navbar {
     display: flex;
@@ -138,6 +141,11 @@ body {
     outline: none;
     border-color: #006aff;
     border-width: 2px;
+}
+.search:hover{
+  outline: none;
+  border-color: #006aff;
+  border-width: 2px;
 }
   .post-btn {
     background: red;
@@ -186,6 +194,7 @@ body {
   .tag-bar {
     display: flex;
     gap: 10px;
+    margin-top: 20px;
     background-color: rgb(1,4,9);
     overflow-x: auto;
     padding: 15px;
@@ -205,6 +214,9 @@ body {
     border: .5px solid rgb(61, 68, 78);
     padding: 15px;
     border-radius: 10px;
+  }
+  .problem-card:hover{
+    border-color: #006aff;
   }
   
 .menu-icon {
@@ -236,7 +248,7 @@ body {
     padding-left: 5px;
   }
   .wename{
-    font-size: 22px;
+    font-size: 20px;
     margin-top: 20px;
     font-family: cursive;
 }
@@ -255,4 +267,13 @@ body {
   color: #919191;
   font-size: 13px;
   top: -10px;
+}
+.pname{
+  font-size: 14px;
+  color: #006aff;
+}
+.pdiscription{
+  font-style: italic;
+  color: #b4b4b4;
+  font-size: 12px;
 }
