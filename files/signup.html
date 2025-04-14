@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Background Video Example</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- Background Video -->
+  <video id="vdo" autoplay muted loop class="bg-video">
+    <source src="/src/loginbg.mov" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <script>
+    const vdo = document.getElementById("vdo");
+    vdo.playbackRate = 0.7;
+  </script>
+  <div class="overlay" id="loginOverlay">
+    <div class="login-form">
+      <h2>Sign-Up</h2>
+      <form action="/signup" method="POST">
+        <center>
+          <input type="text" name="Name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="email" required />
+          <input type="tel" name="mobo" placeholder="Mobile Number" required />
+          
+          <input type="password" name="password" placeholder="Password" required />
+          <input type="password" name="password" placeholder="Re-Password" required />
+          <button type="submit">Register</button>
+        </center>
+      </form>
+      <p style="text-align: center; font-size: 12px;">Old here, <a href="login.html" >Login</a></p>
+    </div>
+    <!--<span class="close-btn" onclick="document.getElementById('loginOverlay').style.display='none'">&times;</span>-->
+  </div>
+  
+
+</body>
+</html>
