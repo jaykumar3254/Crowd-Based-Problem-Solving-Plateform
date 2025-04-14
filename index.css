@@ -107,7 +107,9 @@ body {
 }
   
   .navbar {
+    position: absolute;
     display: flex;
+    width: 98%;
     justify-content: space-between;
     align-items: center;
     height: 27px;
@@ -171,9 +173,10 @@ body {
   }
   .sidebar1 {
     margin-top: 68px;
-    height: 80%;
+    height: 90%;
     width: 250px;
-    position: absolute;
+    position: fixed;
+    border: 1px solid rgb(61, 68, 78);
     top: 0;
     left: -250px; 
     background-color: rgb(13,16,23);
@@ -184,7 +187,7 @@ body {
   
   .sidebar1 a {
     padding: 20px 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;    
     text-decoration: none;
     font-size: 14px;
     color: white;
@@ -198,13 +201,14 @@ body {
 
   
   .main-content {
+    margin-top: 60px;
     display: flex;
     flex: 1;
     transition: margin-left 0.3s;
   }
   
   .sidebar {
-    width: 15%;
+    width: 25%;
     padding: 20px;
     background-color: rgb(13,16,23);
     border-right: .5px solid rgb(61, 68, 78);
@@ -217,10 +221,13 @@ body {
   }
   
   .activity {
+    margin-top: 20px;
+    margin-right: 10px;
     width: 15%;
     padding: 20px;
+    border-radius: 5px;
     background-color: rgb(13,16,23);
-    border-left: .5px solid rgb(61, 68, 78);
+    border: .5px solid rgb(61, 68, 78);
   }
   
   .tag-bar {
@@ -308,4 +315,12 @@ body {
   font-style: italic;
   color: #b4b4b4;
   font-size: 12px;
+}
+.recenttop{
+  margin: 10px 0;
+  color: #c4c4c4;
+  border-radius: 10px;
+}
+.recenttop:hover{
+  color: white;
 }
