@@ -7,7 +7,7 @@
         <div class="container">
             <div class="navbar">
               <div class="left-icons">
-                <button class="menu-icon">☰</button>
+                <button class="menu-icon" onclick="toggleSidebar()">☰</button>
                 <img src="src/image.svg" alt="Logo" class="logo">
                 <h2 class="wename">PROBLEM STORE</h2>
               </div>
@@ -17,7 +17,19 @@
                 <img src="src/profile.jpg" alt="profile" class="profile-pic">
               </div>
             </div>
-          
+              <div id="menu1" class="sidebar1">
+                <a href="#">Your Profile</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Sign-Up/Log-in</a>
+                <a href="#" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+              </div>
+            <script>
+               function toggleSidebar() {
+                const sidebar1 = document.getElementById("menu1");
+                sidebar1.classList.toggle("open");
+              }
+            </script>
             <!-- Main Content -->
             <div class="main-content">
               <div class="sidebar">
