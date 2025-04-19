@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <title>You</title>
+        <link rel="stylesheet" href="../index.css">
+
+    </head>
+    <body>
+        <div class="container1">
+            <div class="navbar">
+                <div class="left-icons">
+                  <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+                  <img src="src/image.svg" alt="Logo" class="logo">
+                  <h2 class="wename">SOLUTION STORE</h2>
+                </div>
+                <input type="text" class="search" placeholder="Search...">
+                <div class="nav-right">
+                  <button class="post-btn">Post</button>
+                  <img src="files/src/profile.jpg" alt="profile" class="profile-pic">
+                </div>
+              </div>
+                <div id="menu1" class="sidebar1">
+                  <a href="index.html">Home</a>
+                  <a href="profile.html">Your Profile</a>
+                  <a href="about.html">About</a>
+                  <a href="contact.html">Contact</a>
+                  <a href="login.html">Sign-Up/Log-in</a>
+                  <a href="#" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+                </div>
+              <script>
+                 function toggleSidebar() {
+                  const sidebar1 = document.getElementById("menu1");
+                  sidebar1.classList.toggle("open");
+                }
+              </script>
+        </div>
+        <div class="profileimgcontainer">
+            <img class="profileimg" src="src/profile.jpg"  alt="">
+            <div style="background-color: transparent; width: 60%; height: 250px;border-left: .5px solid rgb(61, 68, 78); margin-left: 60px;">
+                <h1 class="urname">Jaykumar Pardeshi </h1>
+                <h3 class="urname" style="font-size: 14px; color: #ccccccb1;"><i>uid:@Jaycs3254</i></h3>
+                <h3 class="urname" style="font-size: 14px; color: #ccccccb1;">Hello ! <br> i am jaykumar an computer scrience student <br> seeking for an junior software support or enginner</h3>
+            </div>
+        </div>
+        <div style="display: block;  color: #ccc; width: 100%; height: 100%; margin: 20px; border-top: .5px solid rgb(61, 68, 78);">
+          <div class="problem-card" style="width: 20%; margin-top: 20px;">
+            <h3 class="pname"><u>Problem-Name</u></h3>
+            <p class="pdiscription" >Upvoted / posted solution / comment on it  </p>
+            <img src="src/profile.jpg" class="probuser">
+            <label class="username" >@username</label>
+          </div>
+          <div class="problem-card" style="width: 20%; margin-top: 20px;">
+            <h3 class="pname"><u>Problem-Name</u></h3>
+            <p class="pdiscription" >Upvoted / posted solution / comment on it  </p>
+            <img src="src/profile.jpg" class="probuser">
+            <label class="username" >@username</label>
+          </div>
+        </div>
+        </body>
+</html>
