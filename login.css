@@ -50,7 +50,7 @@ body, html {
 
   /* Login form container */
   .login-form {
-    background: #00000088;
+    background: rgba(1, 4, 9, 0.5);
     padding: 30px;
     border-radius: 12px;
     width: 300px;
@@ -66,10 +66,10 @@ body, html {
   .login-form input {
     width: 250px;
     padding: 10px;
-    background-color: #00000088;
+    background-color: rgb(1,4,9);
     color: white;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: .5px solid rgb(61, 68, 78);
     border-radius: 8px;
   }
 
