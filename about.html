@@ -1,8 +1,97 @@
 <html lang="en">
     <head>
-        <title>It's we</title>
+        <title>We</title>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>Hello let me introduce myself !!!</h1>
-    </body>
+        <div class="container">
+          <!-- Nav bar-->
+            <div class="navbar">
+              <div class="left-icons">
+                <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+                <img src="src/image.svg" alt="Logo" class="logo">
+                <h2 class="wename">SOLUTION STORE</h2>
+              </div>
+              <input type="text" class="search" placeholder="Search...">
+              <div class="nav-right">
+                <button class="post-btn">Post</button>
+                <a href="profile.html"><img src="src/profile.jpg" alt="profile" class="profile-pic"></a>
+              </div>
+            </div>
+              <div id="menu1" class="sidebar1">
+                <!--<a href="#">Home</a>-->
+                <a href="profile.html">Your Profile</a>
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Sign-Up/Log-in</a>
+                <a href="#" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+              </div>
+            <script>
+               function toggleSidebar() {
+                const sidebar1 = document.getElementById("menu1");
+                sidebar1.classList.toggle("open");
+              }
+            </script>
+            <div class="about1">
+              <div class="about2">
+                <h1><center>About Us</center></h1>
+                <div class="mission">
+                    <h3>Our mission</h3>
+                    <p>
+                        We believe that the best solutions come from the collective wisdom of the crowd. Our mission is to connect problem-solvers from all walks of life to tackle real-world challenges, together.
+                    </p>
+                </div>
+                <div class="whatwedo">
+                    <h3>What We Do</h3>
+                    <p>
+                        Our platform allows individuals, Programmers, organizations, or communities to post their challenges—whether technical, social, or logistical. Skilled individuals or teams can then contribute ideas, collaborate, and help solve them.<br>
+                        they can post link or address to their solutions whare user can visite and get what they want.
+                    </p>
+                </div>
+                <center>
+                    <div class="howitworks">
+                        <h3>How It Works</h3>
+                        <p>
+                          follows an simple chart that what acctually happens in our site
+                          
+                        </p>
+                        <img src="src/howitworks.png" alt="How It Works" class="howitworks-image">
+                    </div>
+                </center>
+                <center>
+                    <div class="why">
+                        <h3> Why Crowd-Sourcing?</h3>
+                        <p>
+                            Started by passionate developers and changemakers, our goal is to empower everyday heroes with the tools to make a difference.
+                        </p>
+                    </div>
+                </center>
+              </div>
+            </div>
+        </div>
+              <footer class="footer2">
+                <div class="footer">
+                <div class="row">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+                
+                <div class="row">
+                <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Career</a></li>
+                </ul>
+                </div>
+                
+                <div class="row">
+                CSPSP Copyright © 2025 Inferno - All rights reserved 
+                </div>
+                </div>
+                </footer>	
+            </body>
 </html>
