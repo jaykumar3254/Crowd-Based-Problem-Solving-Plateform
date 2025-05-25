@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<hrml>
+<html lang="en">
     <head>
-        <title>Problem Detail</title>
-        <link rel="stylesheet" href="probdetail.css">
+        <title>You</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="navbar.css">
     </head>
     <body>
-        <div class="container">
-            <!-- Nav bar-->
-              <div class="navbar">
+        <div class="container1">
+            <div class="navbar">
                 <div class="left-icons">
                   <button class="menu-icon" onclick="toggleSidebar()">☰</button>
                   <img src="src/image.svg" alt="Logo" class="logo">
@@ -16,26 +15,26 @@
                 <input type="text" class="search" placeholder="Search...">
                 <div class="nav-right">
                   <button class="post-btn">Post</button>
-                  <a href="profile.html"><img src="src/profile.jpg" alt="profile" class="profile-pic"></a>
+                  <img src="src/profile.jpg" alt="profile" class="profile-pic">
                 </div>
               </div>
-        </div>  
-        <div id="menu1" class="sidebar1">
-            <!--<a href="#">Home</a>-->
-            <a href="profile.html">Your Profile</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html">Sign-Up/Log-in</a>
-            <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
-          </div>
-        <script>
-           function toggleSidebar() {
-            const sidebar1 = document.getElementById("menu1");
-            sidebar1.classList.toggle("open");
-          }
-          function popup() {
-                alert("You want to log out ? ");
-              }
-        </script>
-    </body>
-</hrml>
+                <div id="menu1" class="sidebar1">
+                  <a href="index.html">Home</a>
+                  <a href="about.html">About</a>
+                  <a href="contact.html">Contact</a>
+                  <a href="login.html">Sign-Up/Log-in</a>
+                  <a onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+                </div>
+              <script>
+                 function toggleSidebar() {
+                  const sidebar1 = document.getElementById("menu1");
+                  sidebar1.classList.toggle("open");
+                }
+                function popup() {
+                    alert("You want to log out ? ");
+                  }
+              </script>
+        </div>
+        
+        </body>
+</html>

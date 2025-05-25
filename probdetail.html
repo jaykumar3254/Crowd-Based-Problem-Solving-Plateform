@@ -3,6 +3,7 @@
     <head>
         <title>Problem Detail</title>
         <link rel="stylesheet" href="probdetail.css">
+        <link rel="stylesheet" href="navbar.css">
     </head>
     <body>
         <div class="container">
@@ -74,8 +75,12 @@
               </p>
             </div>
             <div class="sol-container">
-              <input type="text" class="commenttxt" placeholder="Add a comment..."><br>
-              <textarea class="commenttxt" id="discrip">Enter text dsicription of your solution.............</textarea>
+              <form action="" method="post">
+                <h3>Enter Your Thoughts ..!</h3>
+                  <input type="text" class="commenttxt" placeholder="Add a comment..."><br>
+                  <textarea class="commenttxt" id="discrip" placeholder="Discription ..... "></textarea><br>
+                  <input style="margin-left: 20px; margin-bottom: 10px;" type="submit" class="post-btn" value="Submit">
+              </form>
             </div>
         </div>
     </body>
