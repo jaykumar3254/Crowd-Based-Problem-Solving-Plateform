@@ -24,13 +24,16 @@
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
                 <a href="login.html">Sign-Up/Log-in</a>
-                <a href="#" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+                <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
               </div>
             <script>
                function toggleSidebar() {
                 const sidebar1 = document.getElementById("menu1");
                 sidebar1.classList.toggle("open");
               }
+              function popup() {
+                    alert("You want to log out ? ");
+                  }
             </script>
             <!-- Main Content -->
             <div class="main-content">
@@ -54,73 +57,18 @@
           
                 <!-- Problem Cards -->
                 <div class="cardspace">
-                <div class="problem-card">
+                <div onclick="goToPage()" class="problem-card">
                   <h3 class="pname"><u>Problem-Name</u></h3>
                   <p class="pdiscription" >problem discription .........</p>
                   <img src="src/profile.jpg" class="probuser">
                   <label class="username" >@username</label>
                 </div>
-
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem d..sdf.saf asklv jakr.jarla rjrehrbgesrbgsekbgshbgsvbslivsnsrvb jfg rg  ge rg er ge gerjgergerjge g erkjge rge r ergershebgelfvbsdfvbsdhvsdfvsd</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
-                <div class="problem-card">
-                  <h3 class="pname"><u>Problem-Name</u></h3>
-                  <p class="pdiscription" >problem discription .........</p>
-                  <img src="src/profile.jpg" class="probuser">
-                  <label class="username" >@username</label>
-                </div>
+                <script>
+                  function goToPage() {
+                    window.location.href = "probdetail.html"; // Replace with the URL of the page you want to navigate to
+                  }
+                </script>
+                
               </div>
               
                 

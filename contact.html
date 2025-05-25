@@ -1,8 +1,41 @@
-<html lang="en">
+<!DOCTYPE html>
+<hrml>
     <head>
-        <title>We are here </title>
+        <title>Problem Detail</title>
+        <link rel="stylesheet" href="probdetail.css">
     </head>
     <body>
-        <h1>Don't Worries ! we are here to help you </h1>
+        <div class="container">
+            <!-- Nav bar-->
+              <div class="navbar">
+                <div class="left-icons">
+                  <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+                  <img src="src/image.svg" alt="Logo" class="logo">
+                  <h2 class="wename">SOLUTION STORE</h2>
+                </div>
+                <input type="text" class="search" placeholder="Search...">
+                <div class="nav-right">
+                  <button class="post-btn">Post</button>
+                  <a href="profile.html"><img src="src/profile.jpg" alt="profile" class="profile-pic"></a>
+                </div>
+              </div>
+        </div>  
+        <div id="menu1" class="sidebar1">
+            <!--<a href="#">Home</a>-->
+            <a href="profile.html">Your Profile</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Sign-Up/Log-in</a>
+            <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+          </div>
+        <script>
+           function toggleSidebar() {
+            const sidebar1 = document.getElementById("menu1");
+            sidebar1.classList.toggle("open");
+          }
+          function popup() {
+                alert("You want to log out ? ");
+              }
+        </script>
     </body>
-</html>
+</hrml>

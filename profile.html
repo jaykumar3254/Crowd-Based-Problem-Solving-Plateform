@@ -23,13 +23,16 @@
                   <a href="about.html">About</a>
                   <a href="contact.html">Contact</a>
                   <a href="login.html">Sign-Up/Log-in</a>
-                  <a href="#" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+                  <a onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
                 </div>
               <script>
                  function toggleSidebar() {
                   const sidebar1 = document.getElementById("menu1");
                   sidebar1.classList.toggle("open");
                 }
+                function popup() {
+                    alert("You want to log out ? ");
+                  }
               </script>
         </div>
         <div class="profileimgcontainer">

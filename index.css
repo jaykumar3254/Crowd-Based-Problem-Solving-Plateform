@@ -150,17 +150,24 @@ body {
   border-width: 2px;
 }
   .post-btn {
-    background: red;
+    background: #006aff;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 8px 22px;
     border-radius: 5px;
   }
   
   .profile-pic {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
+    padding: 4px;
+    border: 1px solid rgb(61, 68, 78);
     border-radius: 50%;
+  }
+  .profile-pic:hover{
+    outline: none;
+    border-color: #006aff;
+    border-width: 2px;
   }
   
   .container {
@@ -234,6 +241,7 @@ body {
   
   .tag-bar {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
     background-color: rgb(1,4,9);
@@ -244,7 +252,13 @@ body {
   }
   
   .tag {
-    background-color: #222;
+    background-color: #006aff;
+    padding: 6px 12px;
+    border-radius: 5px;
+  }
+    
+  .tag:hover {
+    background-color: #006affd2;
     padding: 6px 12px;
     border-radius: 5px;
   }

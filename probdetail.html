@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<hrml>
+    <head>
+        <title>Problem Detail</title>
+        <link rel="stylesheet" href="probdetail.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- Nav bar-->
+              <div class="navbar">
+                <div class="left-icons">
+                  <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+                  <img src="src/image.svg" alt="Logo" class="logo">
+                  <h2 class="wename">SOLUTION STORE</h2>
+                </div>
+                <input type="text" class="search" placeholder="Search...">
+                <div class="nav-right">
+                  <button class="post-btn">Post</button>
+                  <a href="profile.html"><img src="src/profile.jpg" alt="profile" class="profile-pic"></a>
+                </div>
+              </div>
+              <div id="menu1" class="sidebar1">
+                <!--<a href="#">Home</a>-->
+                <a href="profile.html">Your Profile</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Sign-Up/Log-in</a>
+                <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+              </div>
+            <script>
+                function toggleSidebar() {
+                    const sidebar1 = document.getElementById("menu1");
+                    sidebar1.classList.toggle("open");
+                  }
+                function popup() {
+                  alert("You want to log out ? ");
+                }
+            </script>
+            <div>
+              <h1 class="title"><i>AR-(Argument Reality based information camera)</i></h1>
+            </div>
+            <div class="Discription">
+              <h3>Discription</h3>
+              <p>The <strong>Argument Reality (AR) Based Information Camera</strong> is a cutting-edge technological tool that combines the power of <strong>Augmented Reality (AR)</strong> with real-time data processing to overlay contextual, intelligent information directly onto the user's camera view. It acts as a digital lens that augments real-world objects or scenarios with relevant insights, making human-computer interaction more intuitive and efficient.</p>
+
+              <p><strong>Key Features:</strong></p>
+              <ul>
+                <li><strong>Real-Time Object Recognition:</strong> The camera detects physical objects or scenes and identifies them instantly using AI and computer vision.</li>
+                <li><strong>Context-Aware Information:</strong> It intelligently displays data that’s relevant to the environment or subject in view, tailored to user needs.</li>
+                <li><strong>Voice and Text-Based Interaction:</strong> Users can ask questions or receive verbal/audio feedback based on what the camera sees.</li>
+                <li><strong>Integration with Databases and APIs:</strong> Pulls live information from the web, cloud, or internal systems to enhance displays.</li>
+                <li><strong>Modular Design for Multiple Use-Cases:</strong> Customizable for education, tourism, retail, healthcare, and industrial applications.</li>
+              </ul>
+
+              <p><strong>Use Case Examples:</strong></p>
+              <ul>
+                <li><strong>Education:</strong> Students can point the AR camera at a diagram to see 3D explanations or definitions overlaid instantly.</li>
+                <li><strong>Tourism:</strong> View historical landmarks and receive real-time facts, reconstructions, or language translations.</li>
+                <li><strong>Retail:</strong> Scan a product and instantly access reviews, price comparisons, or try-ons.</li>
+                <li><strong>Industrial Maintenance:</strong> Technicians view equipment through AR to receive repair steps or diagnostics instantly.</li>
+              </ul>
+
+              <p><strong>Benefits:</strong></p>
+              <ul>
+                <li>Enhances learning and engagement through immersive visuals.</li>
+                <li>Saves time by reducing the need to manually search for information.</li>
+                <li>Improves decision-making with real-time, data-driven overlays.</li>
+                <li>Supports accessibility by converting visual data to audio or text prompts.</li>
+              </ul>
+
+              <p><strong>Final Thoughts:</strong><br>
+              The <strong>AR-Based Information Camera</strong> represents the next evolution of how we perceive and interact with data in the real world. By merging physical and digital realities, it enables users to gain instant, relevant knowledge without disrupting their workflow or experience. This innovation is not just about visual augmentation—it's about <strong>contextual intelligence</strong> at your fingertips.</p>
+
+              </p>
+            </div>
+            <div class="sol-container">
+              <input type="text" class="commenttxt" placeholder="Add a comment..."><br>
+              <textarea class="commenttxt" id="discrip">Enter text dsicription of your solution.............</textarea>
+            </div>
+        </div>
+    </body>
+</hrml>
