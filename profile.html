@@ -3,6 +3,7 @@
         <title>You</title>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="postform.css">
     </head>
     <body>
         <div class="container1">
@@ -14,7 +15,7 @@
                 </div>
                 <input type="text" class="search" placeholder="Search...">
                 <div class="nav-right">
-                  <button class="post-btn">Post</button>
+                  <button class="post-btn" id="postBtn">Post</button>
                   <img src="src/profile.jpg" alt="profile" class="profile-pic">
                 </div>
               </div>
@@ -57,5 +58,33 @@
             <label class="username" >@username</label>
           </div>
         </div>
+               <!-- Modal Form -->
+              <div id="overlayForm" class="modal">
+                <div class="modal-content">
+                  <span class="closeBtn">&times;</span>
+                  <h2>Post a Problem</h2>
+                  <form id="problemForm" action="save_data.php" method="POST" enctype="multipart/form-data">
+                    <center>
+                    <label class="in1" for="name">Problem Name:</label><br>
+                    <input class="in" type="text" id="name" name="name" placeholder="Enter hare" required><br>
+
+                    <label class="in1" for="description">Problem Description:</label><br>
+                    <textarea class="in" id="description" name="description"placeholder="Enter hare"  required></textarea><br>
+
+                    <label class="in1" for="media">Media (Image/Video):</label><br>
+                    <input class="in" type="file" id="media" name="media"placeholder="Enter hare" ><br>
+
+                    <label class="in1" for="link">Solution Link / Article:</label><br>
+                    <input class="in" type="url" id="link" name="link"placeholder="Enter hare" ><br>
+
+                    <div class="buttons">
+                    <button class="btn" type="submit">Submit</button><br>
+                    <button class="btn" type="button" id="cancelBtn">Cancel</button><br>
+                    </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <script src="postform.js"></script>
         </body>
 </html>

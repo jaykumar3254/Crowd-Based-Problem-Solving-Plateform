@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <!-- Background Video -->
   <video id="vdo" autoplay muted loop class="bg-video">
     <source src="loginbg.mov" type="video/mp4">
     Your browser does not support HTML5 video.
@@ -18,14 +17,14 @@
   <div class="overlay" id="loginOverlay">
     <div class="login-form">
       <h2>Sign-Up</h2>
-      <form action="/signup" method="POST">
+      <form id="registrationform" >
         <center>
           <input type="text" name="Name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="email" required />
-          <input type="tel" name="mobo" placeholder="Mobile Number" required />
+          <input type="email" name="Email" placeholder="email" required />
+          <input type="tel" name="MoNo" placeholder="Mobile Number" required />
           
-          <input type="password" name="password" placeholder="Password" required />
-          <input type="password" name="password" placeholder="Re-Password" required />
+          <input type="password" name="Password" placeholder="Password" required />
+          <input type="password" name="re-password" placeholder="Re-Password" required />
           <button type="submit">Register</button>
         </center>
       </form>
@@ -33,7 +32,26 @@
     </div>
     <!--<span class="close-btn" onclick="document.getElementById('loginOverlay').style.display='none'">&times;</span>-->
   </div>
-  
+  <script>
+        document.getElementById("registrationform").addEventListener("submit", function(event){
+            event.preventDefault(); // prevent form from submitting normally
+
+            const formData = new FormData(this);
+
+            fetch("register.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show alert message returned from PHP
+                document.getElementById("registrationForm").reset(); // Optionally reset form
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
 
 </body>
 </html>
