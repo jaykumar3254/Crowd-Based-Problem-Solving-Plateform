@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="postform.css">
+        <link rel="stylesheet" href="intro.css">
     </head>
     <body>
         <div class="container">
@@ -51,7 +52,7 @@
                     <input class="in" type="text" id="name" name="name" placeholder="Enter hare" required><br>
 
                     <label class="in1" for="description">Problem Description:</label><br>
-                    <textarea class="in" id="description" name="description"placeholder="Enter hare"  required></textarea><br>
+                    <textarea style="text-align: left;" rows="10" cols="100" class="in" id="description" name="description"placeholder="Enter hare"  required></textarea><br>
 
                     <label class="in1" for="media">Media (Image/Video):</label><br>
                     <input class="in" type="file" id="media" name="media"placeholder="Enter hare" ><br>
@@ -68,10 +69,10 @@
                 </div>
               </div>
               <script src="postform.js"></script>
-              <!--Model form ends-->
-              <!-- Main Content -->
+              <!--psot form-->
+              <!-- problem display -->
               <div class="main-content">
-              <!-- side bar-->
+              <!-- problem list-->
                 <div class="sidebar">
                   Top Problem<hr><br>
                   <div class="recenttop">Problem 1</div>
@@ -82,23 +83,23 @@
                 <div class="feed">
                   <label style="font-size:24px; padding:15px;">Home</label>
                   <div class="tag-bar">
-                  <!-- Horizontal Tag List -->
+                  <!-- tags -->
                     <span class="tag">#DSA</span>
                     <span class="tag">#AI</span>
                     <span class="tag">#Web</span>
                     <span class="tag">#Android</span>
                   </div><br>
           
-                  <!-- Problem Cards -->
+                  <!-- Problem Cards dashboard -->
                   <div class="cardspace">
-                    <div onclick="goToPage()" class="problem-card">
+                    <div onclick="pstprb()" class="problem-card">
                       <h3 class="pname"><u>Problem-Name</u></h3>
-                      <p class="pdiscription" >problem discription .........</p>
+                      <p class="pdiscription" >problem discription .........</p><hr>
                       <img src="src/profile.jpg" class="probuser">
                       <label class="username" >@username</label>
                     </div>
                     <script>
-                      function goToPage() {
+                      function pstprb() {
                         window.location.href = "probdetail.html"; // Replace with the URL of the page you want to navigate to
                       }
                     </script>
@@ -139,4 +140,23 @@
             </div>
           </div>
         </footer>	
+        
+  <!-- Intro Overlay 
+  <div id="intro-overlay">
+    <img src="src/image.svg" alt="Logo" class="introimg" />
+    <h2 class="cpyname">SOLUTION STORE</h2>
+  </div>
+
+  <script>
+    // Fade out the intro after 3 seconds
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const overlay = document.getElementById("intro-overlay");
+        overlay.classList.add("fade-out");
+      }, 3000); // 3 seconds
+    });
+  </script>-->
+</body>
+</html>
+
         

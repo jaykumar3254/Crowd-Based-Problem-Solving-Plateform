@@ -45,6 +45,7 @@
             .then(response => response.text())
             .then(data => {
                 alert(data); // Show alert message returned from PHP
+                window.location.href = "login.html"; // Redirect to login page
                 document.getElementById("registrationForm").reset(); // Optionally reset form
             })
             .catch(error => {

@@ -69,3 +69,32 @@ body {
     font-style: italic;
     border: 1px solid rgb(61, 68, 78);
   }
+
+    .problem-card {
+    background-color: rgb(1,4,9);
+    border: .5px solid rgb(61, 68, 78);
+    padding: 25px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .problem-card:hover{
+    border-color: #006aff;
+  }
+  .username{
+  display: flex;
+  margin-left: 50px;
+  margin-top: -25px;
+  font-style: italic;
+  color: #919191;
+  font-size: 13px;
+  top: -10px;
+}
+.pname{
+  font-size: 14px;
+  color: #006aff;
+}
+.pdiscription{
+  font-style: italic;
+  color: #b4b4b4;
+  font-size: 12px;
+}

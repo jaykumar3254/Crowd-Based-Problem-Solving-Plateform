@@ -2,11 +2,7 @@
 session_start();
 header('Content-Type: text/plain');
 
-$conn = new mysqli("localhost", "root", "", "user");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db.php';
 
 $email = $conn->real_escape_string($_POST['email']);
 $password = $_POST['password'];

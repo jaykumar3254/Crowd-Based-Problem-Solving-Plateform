@@ -1,12 +1,5 @@
-<html>
-    
 <?php 
-$conn = mysqli_connect("localhost", "root", "", "user");
-
-if (!$conn) {
-    echo "<script>alert('Connection failed.');</script>";
-    exit();
-}
+include 'db.php'; // Include database connection file
 
 $name = $_POST['Name'];
 $mail = $_POST['Email'];
@@ -15,16 +8,15 @@ $pass = $_POST['Password'];
 $pass1 = $_POST['re-password'];
 
 if ($pass !== $pass1) {
-    echo "<script>alert('Passwords do not match.');</script>";
+    echo "Passwords do not match.";
     exit();
 }
 
 $qry = "INSERT INTO userdb (Name, Email, MoNo, Pass) VALUES ('$name', '$mail', '$mono', '$pass')";
 
 if (mysqli_query($conn, $qry)) {
-    echo "<script> alert('New record created successfully');window.location.href = 'index.html';</script>";
+    echo "New record created successfully";
 } else {
-    echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+    echo "Error: " . mysqli_error($conn);
 }
 ?>
-</html>

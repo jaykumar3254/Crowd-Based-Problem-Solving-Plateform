@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.725);
 }
 
 .modal-content {
@@ -16,7 +16,6 @@
   padding: 40px;
   width: 50%;
   border: 1px solid #006aff;
-  border-radius: 15px;
   position: relative;
 }
 
@@ -42,7 +41,6 @@
     width: 120px;
     background: #006aff;
     border: 1px solid black;
-    border-radius: 5px;
     color: white;
 }
 .in{
