@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'db.php'; // Include database connection file
 
 $name = $_POST['Name'];

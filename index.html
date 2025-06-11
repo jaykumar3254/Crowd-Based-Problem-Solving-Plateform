@@ -5,6 +5,31 @@
         <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="postform.css">
         <link rel="stylesheet" href="intro.css">
+        <style>
+.problem-card {
+  background: #1a1a1a;
+  padding: 15px;
+  margin: 10  0px 0;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.problem-card .author-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.problem-card .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+</style>
+
     </head>
     <body>
         <div class="container">
@@ -46,19 +71,16 @@
                 <div class="modal-content">
                   <span class="closeBtn">&times;</span>
                   <h2>Post a Problem</h2>
-                  <form id="problemForm" action="save_data.php" method="POST" enctype="multipart/form-data">
+                  <form id="problemForm" action="pstcontent.php" method="POST" enctype="multipart/form-data">
                     <center>
                     <label class="in1" for="name">Problem Name:</label><br>
-                    <input class="in" type="text" id="name" name="name" placeholder="Enter hare" required><br>
+                    <input class="in" type="text" id="name" name="prname" placeholder="Enter hare" required><br>
 
                     <label class="in1" for="description">Problem Description:</label><br>
                     <textarea style="text-align: left;" rows="10" cols="100" class="in" id="description" name="description"placeholder="Enter hare"  required></textarea><br>
 
-                    <label class="in1" for="media">Media (Image/Video):</label><br>
-                    <input class="in" type="file" id="media" name="media"placeholder="Enter hare" ><br>
-
                     <label class="in1" for="link">Solution Link / Article:</label><br>
-                    <input class="in" type="url" id="link" name="link"placeholder="Enter hare" ><br>
+                    <input class="in" type="url" id="link" name="reference_link" placeholder="Enter hare" ><br>
 
                     <div class="buttons">
                     <button class="btn" type="submit">Submit</button><br>
@@ -66,6 +88,28 @@
                     </div>
                     </center>
                   </form>
+                  <script>
+                    document.getElementById("problemForm").addEventListener("submit", function(e) {
+                    e.preventDefault(); // ⛔ prevent form from going to the PHP page
+
+                    const formData = new FormData(this);
+
+                    fetch("pstcontent.php", {
+                    method: "POST",
+                    body: formData
+                  })
+                  .then(response => response.text())
+                  .then(message => {
+                  alert(message); // ✅ Show message from PHP
+                  this.reset(); // Optionally clear the form
+                  })
+                  .catch(error => {
+                  alert("Something went wrong!");
+                  console.error(error);
+                  });
+                  });
+                </script>
+
                 </div>
               </div>
               <script src="postform.js"></script>
@@ -91,17 +135,48 @@
                   </div><br>
           
                   <!-- Problem Cards dashboard -->
-                  <div class="cardspace">
-                    <div onclick="pstprb()" class="problem-card">
+                  <div>
+                    <div class="problemContainer" id="problemContainer">
+
+                    </div>
+                    <!--<div onclick="pstprb()" class="problem-card">
                       <h3 class="pname"><u>Problem-Name</u></h3>
                       <p class="pdiscription" >problem discription .........</p><hr>
                       <img src="src/profile.jpg" class="probuser">
                       <label class="username" >@username</label>
-                    </div>
+                    </div> -->
                     <script>
                       function pstprb() {
                         window.location.href = "probdetail.html"; // Replace with the URL of the page you want to navigate to
                       }
+                      function loadProblems() {
+                          fetch("problemsindisplay.php")
+                          .then(response => response.json())
+                          .then(data => {
+                              const container = document.getElementById("problemContainer");
+                              container.innerHTML = "";
+
+                              data.forEach(problem => {
+                                  const card = document.createElement("div");
+                                  card.classList.add("problem-card");
+
+                                  card.innerHTML = `
+                                      <h3 style="color: #2e8bff;">${problem.title}</h3>
+                                      <p style="display: -webkit-box;-webkit-line-clamp: 2;      /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
+                                      <div class="author-info">
+                                          <span>@${problem.username}</span>
+                                      </div>
+                                      <hr />
+                                  `;
+
+                                  container.appendChild(card);
+                              });
+                          })
+                          .catch(err => console.error("Failed to load problems:", err));
+                      }
+
+                      window.onload = loadProblems;
+
                     </script>
                 
                   </div>

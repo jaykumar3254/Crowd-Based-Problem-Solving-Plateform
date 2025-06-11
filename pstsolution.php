@@ -1,6 +1,6 @@
 <?php
-include 'db.php';
 session_start();
+include 'db.php';
 
 $user_id = $_SESSION['user_id'];
 $content_id = $_POST['content_id'];

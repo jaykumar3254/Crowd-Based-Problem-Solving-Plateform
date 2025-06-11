@@ -1,22 +1,30 @@
 <?php
-include 'db.php';
 session_start();
+include 'db.php';
 
-$user_id = $_SESSION['user_id']; // Assume user is logged in
-$title = $_POST['title'];
-$description = $_POST['description'];
-$media_url = $_POST['media_url']; // Path to image/video
-$reference_link = $_POST['reference_link'];
-
-$sql = "INSERT INTO contents (user_id, title, description, media_url, reference_link) 
-        VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("issss", $user_id, $title, $description, $media_url, $reference_link);
-$stmt->execute();
-
-if ($stmt->affected_rows > 0) {
-    echo "Content posted successfully!";
-} else {
-    echo "Error posting content.";
+// Make sure user is logged in
+if (!isset($_SESSION['user_id'])) {
+    echo "You must be logged in to post content.";
+    exit;
 }
+
+// Get input values from the form
+$title = $_POST['prname'];
+$description = $_POST['description'];
+
+$reference_link = $_POST['reference_link'];
+$user_id = $_SESSION['user_id'];
+
+// Insert into your database
+$sql = "INSERT INTO problems (user_id, title, description, reference_link) VALUES (?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("isss", $user_id, $title, $description, $reference_link);
+
+if ($stmt->execute()) {
+    echo "Content submitted successfully!";
+} else {
+    echo "Error submitting content.";
+}
+
+$conn->close();
 ?>
