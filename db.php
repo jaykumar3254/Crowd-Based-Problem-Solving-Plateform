@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$dbname = "user";
+$dbname = "CSPSP";
 
 $conn = new mysqli($host, $user, $password, $dbname);
 

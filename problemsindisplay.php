@@ -2,9 +2,9 @@
 include 'db.php';
 
 // Join problems with users table to get username
-$sql = "SELECT p.title, p.description, u.Name
+$sql = "SELECT p.title, p.description, u.username
         FROM problems p
-        JOIN userdb u ON p.user_id = u.user_id
+        JOIN users u ON p.user_id = u.user_id
         ORDER BY p.content_id DESC";
 
 $result = $conn->query($sql);

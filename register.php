@@ -13,7 +13,7 @@ if ($pass !== $pass1) {
     exit();
 }
 
-$qry = "INSERT INTO userdb (Name, Email, MoNo, Pass) VALUES ('$name', '$mail', '$mono', '$pass')";
+$qry = "INSERT INTO users (username, email, mono, password) VALUES ('$name', '$mail', '$mono', '$pass')";
 
 if (mysqli_query($conn, $qry)) {
     echo "New record created successfully";
