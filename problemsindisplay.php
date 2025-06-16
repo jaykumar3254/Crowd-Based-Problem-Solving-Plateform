@@ -2,7 +2,7 @@
 include 'db.php';
 
 // Join problems with users table to get username
-$sql = "SELECT p.title, p.description, u.username
+$sql = "SELECT p.title, p.description, u.username , p.content_id
         FROM problems p
         JOIN users u ON p.user_id = u.user_id
         ORDER BY p.content_id DESC";

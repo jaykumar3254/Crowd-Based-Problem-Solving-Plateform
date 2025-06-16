@@ -45,16 +45,33 @@
               </div>
               <div class="nav-right">
                 <button class="post-btn" id="postBtn">Post</button>
-                <a href="profile.html"><img src="src/profile.jpg" alt="profile" class="profile-pic"></a>
+                <a id="profile-link" href="#">
+                  <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
+                </a>
+
+                <a href="logout.php" class="logout-button">Logout</a>
+                <script>
+                  fetch('dp.php')
+                    .then(res => res.json())
+                    .then(data => {
+                      if (data.avatar) {
+                        document.getElementById('avatar').src = data.avatar;
+                        document.getElementById('profile-link').href = 'profile.php';
+                      }
+                    })
+                    .catch(err => {
+                      console.error("Failed to load profile image:", err);
+                    });
+                </script>
               </div>
             </div>
               <div id="menu1" class="sidebar1">
                 <!--<a href="#">Home</a>-->
-                <a href="profile.html">Your Profile</a>
+                <a href="profile.php">Your Profile</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
                 <a href="login.html">Sign-Up/Log-in</a>
-                <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" >Log Out</a>
+                <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" href="logout.php" >Log Out</a>
               </div>
             <script>
                 function toggleSidebar() {
@@ -153,13 +170,14 @@
                           fetch("problemsindisplay.php")
                           .then(response => response.json())
                           .then(data => {
+                            console.log(data);
                               const container = document.getElementById("problemContainer");
                               container.innerHTML = "";
 
                               data.forEach(problem => {
                                   const card = document.createElement("div");
                                   card.classList.add("problem-card");
-
+                                  console.log("Redirecting to:", `problem.php?id=${problem.content_id}`);
                                   card.innerHTML = `
                                       <h3 style="color: #2e8bff;">${problem.title}</h3>
                                       <p style="display: -webkit-box;-webkit-line-clamp: 2;      /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
@@ -168,6 +186,11 @@
                                       </div>
                                       <hr />
                                   `;
+                                  
+                                    card.addEventListener('click', () => {
+                                      const problemId = problem.content_id;
+                                      window.location.href = `problem.php?id=${problemId}`;
+                                    });
 
                                   container.appendChild(card);
                               });
