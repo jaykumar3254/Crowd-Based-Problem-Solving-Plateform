@@ -6,22 +6,6 @@
         <link rel="stylesheet" href="postform.css">
         <link rel="stylesheet" href="intro.css">
         <style>
-.problem-card {
-  background: #1a1a1a;
-  padding: 15px;
-  margin: 10  0px 0;
-  color: white;
-  border-radius: 8px;
-  border: 1px solid #333;
-}
-
-.problem-card .author-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-}
-
 .problem-card .avatar {
   width: 30px;
   height: 30px;
@@ -179,12 +163,14 @@
                                   card.classList.add("problem-card");
                                   console.log("Redirecting to:", `problem.php?id=${problem.content_id}`);
                                   card.innerHTML = `
-                                      <h3 style="color: #2e8bff;">${problem.title}</h3>
-                                      <p style="display: -webkit-box;-webkit-line-clamp: 2;      /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
+                                      <h3 class="pname">${problem.title}</h3>
+                                      <p class="pdiscription" style="display: -webkit-box;-webkit-line-clamp: 2;      /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
+                                      <hr />
                                       <div class="author-info">
                                           <span>@${problem.username}</span>
+                                          <img src="${problem.profile_picture}" alt="Avatar" class="avatar">
                                       </div>
-                                      <hr />
+                                      
                                   `;
                                   
                                     card.addEventListener('click', () => {

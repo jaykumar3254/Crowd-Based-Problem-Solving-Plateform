@@ -53,8 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="postform.css">
     <style>
+          .problem-card {
+    background-color: rgb(1,4,9);
+    width: 20%;
+    border: .5px solid rgb(61, 68, 78);
+    padding: 25px;
+    margin: 10px;
+    border-radius: 10px;
+  }
         .profileimg { width: 250px; height: 250px; border-radius: 12px; object-fit: cover; }
-        .problem-card { background-color: #1a1a1a; color: #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px; }
         .probuser { width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; }
         .username { color: #999; font-size: 14px; margin-left: 10px; }
         .btn-upload, .btn-delete { margin-top: 10px; padding: 6px 10px; border: none; cursor: pointer; border-radius: 4px; }
@@ -72,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <input type="text" class="search" placeholder="Search...">
             <div class="nav-right">
-                <button class="post-btn" id="postBtn">Post</button>
                 <img src="<?= $profile_picture ?: 'src/profile.jpg' ?>" alt="profile" class="profile-pic">
                 <a href="logout.php" class="logout-button">Logout</a>
             </div>
@@ -106,12 +112,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
         </div>
     </div>
-
-    <!-- Activity Section -->
-    <div style="padding: 20px;">
-        <h2 style="color:#fff;">Your Activity</h2>
-
-        <h3 style="color:#ccc;">Posted Problems</h3>
+    <hr/>
+    <h2 style="margin-left:30px; color:#fff;">Your Activity</h2>   
+    <h3 style="margin-left:40px; color:#ccc;">Posted Problems</h3><!-- Activity Section -->
+    <div style="padding: 20px; display: flex; flex-wrap: wrap; /* allows wrapping to next line */ gap: 16px;">
         <?php while ($row = $problems->fetch_assoc()): ?>
             <div class="problem-card">
                 <h3 class="pname"><u><?= htmlspecialchars($row['title']) ?></u></h3>
@@ -119,24 +123,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="problem.php?id=<?= $row['content_id'] ?>">View</a>
             </div>
         <?php endwhile; ?>
-
-        <h3 style="color:#ccc;">Solutions Given</h3>
-        <?php while ($row = $solutions->fetch_assoc()): ?>
+        </div>
+        <h3 style="color:#ccc; margin-left:40px; ">Solutions Given</h3>
+        <div style="padding: 20px; display: flex; flex-wrap: wrap; /* allows wrapping to next line */ gap: 16px;">
+            <?php while ($row = $solutions->fetch_assoc()): ?>
             <div class="problem-card">
                 <h3 class="pname"><u><?= htmlspecialchars($row['title']) ?></u></h3>
                 <p class="pdiscription">You posted a solution to this problem.</p>
                 <a href="problem.php?id=<?= $row['solution_id'] ?>">View</a>
             </div>
         <?php endwhile; ?>
-
-        <h3 style="color:#ccc;">Upvoted Problems</h3>
-        <?php while ($row = $upvotes->fetch_assoc()): ?>
+        </div>
+        <h3 style="color:#ccc; margin-left:40px; ">Upvoted Problems</h3>
+        <div style="padding: 20px; display: flex; flex-wrap: wrap; /* allows wrapping to next line */ gap: 16px;">
+            <?php while ($row = $upvotes->fetch_assoc()): ?>
             <div class="problem-card">
                 <h3 class="pname"><u><?= htmlspecialchars($row['title']) ?></u></h3>
                 <p class="pdiscription">You upvoted this problem.</p>
                 <a href="problem.php?id=<?= $row['solution_id'] ?>">View</a>
             </div>
         <?php endwhile; ?>
+        </div>
     </div>
 
     <!-- Scripts -->
