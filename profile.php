@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img src="src/image.svg" alt="Logo" class="logo">
                 <h2 class="wename">SOLUTION STORE</h2>
             </div>
-            <input type="text" class="search" placeholder="Search...">
+            <!--<input type="text" class="search" placeholder="Search...">-->
             <div class="nav-right">
                 <img src="<?= $profile_picture ?: 'src/profile.jpg' ?>" alt="profile" class="profile-pic">
                 <a href="logout.php" class="logout-button">Logout</a>

@@ -70,7 +70,7 @@ $solutions = $stmt2->get_result();
                 <h2 class="wename">SOLUTION STORE</h2>
               </div>
               <div>
-                <input type="text" class="search" placeholder="Search...">
+<!--<input type="text" class="search" placeholder="Search...">-->
               </div>
               <div class="nav-right">
                 <button class="post-btn" id="postBtn">Post</button>
