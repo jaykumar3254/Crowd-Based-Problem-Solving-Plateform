@@ -163,8 +163,8 @@
                                   card.classList.add("problem-card");
                                   console.log("Redirecting to:", `problem.php?id=${problem.content_id}`);
                                   card.innerHTML = `
-                                      <h3 class="pname">${problem.title}</h3>
-                                      <p class="pdiscription" style="display: -webkit-box;-webkit-line-clamp: 2;      /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
+                                      <h1 class="pname">${problem.title}</h1>
+                                      <p class="pdiscription" style="display: -webkit-box;-webkit-line-clamp: 2; font-size:16px;     /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
                                       <hr />
                                       <div class="author-info">
                                           <span>@${problem.username}</span>

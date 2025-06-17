@@ -48,9 +48,9 @@ $solutions = $stmt2->get_result();
 <html>
 <head>
   <title><?= htmlentities($problem['title']) ?></title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="navbar.css">
   <style>
-    body { background: #111; color: #fff; font-family: Arial, sans-serif; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
     .solution-card { border:1px solid #444; padding:15px; margin:10px 0; border-radius:6px; background:#222; }
     .upvote-btn { background:#28a745; color:#fff; border:none; padding:5px 10px; cursor:pointer; border-radius: 4px; }
@@ -63,10 +63,46 @@ $solutions = $stmt2->get_result();
   </style>
 </head>
 <body>
-  <header>
-    <h2 style="text-align:center;">Problem Detail</h2>
-  </header>
+  <div class="navbar">
+              <div class="left-icons">
+                <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+                <img src="src/image.svg" alt="Logo" class="logo">
+                <h2 class="wename">SOLUTION STORE</h2>
+              </div>
+              <div>
+                <input type="text" class="search" placeholder="Search...">
+              </div>
+              <div class="nav-right">
+                <button class="post-btn" id="postBtn">Post</button>
+                <a id="profile-link" href="#">
+                  <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
+                </a>
 
+                <a href="logout.php" class="logout-button">Logout</a>
+                <script>
+                  fetch('dp.php')
+                    .then(res => res.json())
+                    .then(data => {
+                      if (data.avatar) {
+                        document.getElementById('avatar').src = data.avatar;
+                        document.getElementById('profile-link').href = 'profile.php';
+                      }
+                    })
+                    .catch(err => {
+                      console.error("Failed to load profile image:", err);
+                    });
+                </script>
+              </div>
+            </div>
+                 
+    <h1 style="
+    padding: 20px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    border: 1px solid rgb(61, 68, 78);
+    text-align: center;
+    border-radius: 5px;
+  ">Problem Details</h1>
+              
   <main class="container">
     <section class="problem-detail">
       <h1><?= htmlentities($problem['title']) ?></h1>
@@ -80,13 +116,13 @@ $solutions = $stmt2->get_result();
       </div>
     </section>
 
-    <section class="solutions-list">
+    <section class="problem-card">
       <h2>Community Solutions</h2>
       <?php if ($solutions->num_rows === 0): ?>
         <p>No solutions yet. Be the first to submit one!</p>
       <?php endif; ?>
       <?php while ($s = $solutions->fetch_assoc()): ?>
-        <div class="solution-card">
+        <div class="problem-card">
           <h4><?= htmlentities($s['sol_title']) ?> (<?= $s['upvotes'] ?> ↑)</h4>
           <p><?= nl2br(htmlentities($s['sol_desc'])) ?></p>
           <?php if ($s['media_url']): ?>
@@ -101,8 +137,8 @@ $solutions = $stmt2->get_result();
           <?php if ($user_id): ?>
             <form method="POST" action="upvotes.php" style="margin-top:10px;">
               <input type="hidden" name="solution_id" value="<?= $s['solution_id'] ?>">
-              <button class="upvote-btn" <?= $s['already_upvoted'] ? 'disabled' : '' ?>>
-                <?= $s['already_upvoted'] ? '✅ Upvoted' : '⬆️ Upvote' ?>
+              <button class="post-btn" <?= $s['already_upvoted'] ? 'disabled' : '' ?>>
+                <?= $s['already_upvoted'] ? 'Upvoted' : '⬆Upvote' ?>
               </button>
             </form>
           <?php else: ?>
@@ -113,9 +149,9 @@ $solutions = $stmt2->get_result();
     </section>
 
     <?php if ($user_id): ?>
-    <section id="newSolutionForm">
+    <section class="problem-card" id="newSolutionForm">
       <h3>Submit Your Solution</h3>
-      <form id="solutionForm">
+      <form class="problem-card" id="solutionForm">
         <input type="hidden" name="content_id" value="<?= $content_id ?>">
         <input type="text" name="title" placeholder="Solution Title" required>
         <textarea name="description" placeholder="Solution Description" required></textarea>

@@ -150,14 +150,14 @@ body {
   top: -10px;
 }
 .pname{
-  font-size: 14px;
+  font-size: 22px;
   color: #006aff;
 }
 .pdiscription{
   font-style: italic;
   height: 60px;
   color: #dfdfdf;
-  font-size: 22px;
+  font-size: 12px;
 }
 .recenttop{
   margin: 10px 0;
