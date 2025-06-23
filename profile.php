@@ -102,12 +102,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="post" enctype="multipart/form-data">
                 <input type="file" name="profile_picture" accept="image/*">
-                <button class="btn-upload" type="submit">Upload New Picture</button>
+                
             </form>
             <?php if ($profile_picture): ?>
             <form method="post">
                 <input type="hidden" name="delete_picture" value="1">
-                <button class="btn-delete" type="submit">Delete Picture</button>
+                <button class="post-btn" style="margin:20px;" type="submit">Delete Picture</button>
+                <button class="post-btn" style="margin:20px;" type="submit">Upload New Picture</button>
             </form>
             <?php endif; ?>
         </div>

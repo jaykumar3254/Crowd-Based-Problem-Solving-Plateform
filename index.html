@@ -1,246 +1,250 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Problem-Shop</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="navbar.css">
-        <link rel="stylesheet" href="postform.css">
-        <link rel="stylesheet" href="intro.css">
-        <style>
-.problem-card .avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-</style>
+<head>
+  <title>Problem-Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
-    </head>
-    <body>
-        <div class="container">
-          <!-- Nav bar-->
-            <div class="navbar">
-              <div class="left-icons">
-                <button class="menu-icon" onclick="toggleSidebar()">☰</button>
-                <img src="src/image.svg" alt="Logo" class="logo">
-                <h2 class="wename">SOLUTION STORE</h2>
-              </div>
-              <div>
-                <!--<input type="text" class="search" placeholder="Search...">-->
-              </div>
-              <div class="nav-right">
-                <button class="post-btn" id="postBtn">Post</button>
-                <a id="profile-link" href="#">
-                  <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
-                </a>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="postform.css">
+  <link rel="stylesheet" href="intro.css">
+  <style>
+    .problem-card .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-                <a href="logout.php" class="logout-button">Logout</a>
-                <script>
-                  fetch('dp.php')
-                    .then(res => res.json())
-                    .then(data => {
-                      if (data.avatar) {
-                        document.getElementById('avatar').src = data.avatar;
-                        document.getElementById('profile-link').href = 'profile.php';
-                      }
-                    })
-                    .catch(err => {
-                      console.error("Failed to load profile image:", err);
-                    });
-                </script>
-              </div>
+    .problemContainer {
+      max-height: 950px;
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding-right: 10px;
+    }
+
+    .problemContainer::-webkit-scrollbar {
+      display: none;
+    }
+
+    .recenttop a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    .recenttop a:hover {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Nav bar-->
+    <div class="navbar">
+      <div class="left-icons">
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        <img src="src/image.svg" alt="Logo" class="logo">
+        <h2 class="wename">SOLUTION STORE</h2>
+      </div>
+      <div></div>
+      <div class="nav-right">
+        <button class="post-btn" id="postBtn">Post</button>
+        <a id="profile-link" href="#">
+          <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
+        </a>
+        <a href="logout.php" class="logout-button">Logout</a>
+        <script>
+          fetch('dp.php')
+            .then(res => res.json())
+            .then(data => {
+              if (data.avatar) {
+                document.getElementById('avatar').src = data.avatar;
+                document.getElementById('profile-link').href = 'profile.php';
+              }
+            })
+            .catch(err => console.error("Failed to load profile image:", err));
+        </script>
+      </div>
+    </div>
+
+    <div id="menu1" class="sidebar1">
+      <a href="profile.php">Your Profile</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Sign-Up/Log-in</a>
+      <a onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" href="logout.php">Log Out</a>
+    </div>
+    <script>
+      function toggleSidebar() {
+        document.getElementById("menu1").classList.toggle("open");
+      }
+      function popup() {
+        alert("You want to log out ? ");
+      }
+    </script>
+
+    <!-- Modal Form -->
+    <div id="overlayForm" class="modal">
+      <div class="modal-content">
+        <span class="closeBtn">&times;</span>
+        <h2>Post a Problem</h2>
+        <form id="problemForm" action="pstcontent.php" method="POST" enctype="multipart/form-data">
+          <center>
+            <label class="in1" for="name">Problem Name:</label><br>
+            <input class="in" type="text" id="name" name="prname" placeholder="Enter here" required><br>
+
+            <label class="in1" for="description">Problem Description:</label><br>
+            <textarea rows="10" cols="100" class="in" id="description" name="description" placeholder="Enter here" required></textarea><br>
+
+            <label class="in1" for="link">Solution Link / Article:</label><br>
+            <input class="in" type="url" id="link" name="reference_link" placeholder="Enter here"><br>
+
+            <label class="in1" for="tag">Choose Tag:</label><br>
+            <select class="in" name="tag" id="tag" required>
+              <option value="">--Choose a Tag--</option>
+              <option value="life-hacks">life-hacks</option>
+              <option value="tech">tech</option>
+              <option value="bio">bio</option>
+              <option value="general knowledge">general knowledge</option>
+              <option value="politics">politics</option>
+              <option value="global issues">global issues</option>
+            </select><br>
+
+            <label class="in1" for="customtag">Or Add Your Own Tag:</label><br>
+            <input class="in" type="text" id="customtag" name="customtag" placeholder="e.g. productivity"><br>
+
+            <div class="buttons">
+              <button class="btn" type="submit">Submit</button><br>
+              <button class="btn" type="button" id="cancelBtn">Cancel</button><br>
             </div>
-              <div id="menu1" class="sidebar1">
-                <!--<a href="#">Home</a>-->
-                <a href="profile.php">Your Profile</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="login.html">Sign-Up/Log-in</a>
-                <a  onclick="popup()" style="color: rgba(255, 0, 0, 0.735);" href="logout.php" >Log Out</a>
-              </div>
-            <script>
-                function toggleSidebar() {
-                  const sidebar1 = document.getElementById("menu1");
-                  sidebar1.classList.toggle("open");
-                }
+          </center>
+        </form>
+        <script>
+          document.getElementById("problemForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch("pstcontent.php", {
+              method: "POST",
+              body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+              alert(message);
+              this.reset();
+            })
+            .catch(error => {
+              alert("Something went wrong!");
+              console.error(error);
+            });
+          });
+        </script>
+      </div>
+    </div>
+    <script src="postform.js"></script>
 
-                function popup() {
-                    alert("You want to log out ? ");
-                }
-            </script>
-            <!-- Modal Form -->
-              <div id="overlayForm" class="modal">
-                <div class="modal-content">
-                  <span class="closeBtn">&times;</span>
-                  <h2>Post a Problem</h2>
-                  <form id="problemForm" action="pstcontent.php" method="POST" enctype="multipart/form-data">
-                    <center>
-                    <label class="in1" for="name">Problem Name:</label><br>
-                    <input class="in" type="text" id="name" name="prname" placeholder="Enter hare" required><br>
+    <!-- Problem display -->
+    <div class="main-content">
+      <div class="sidebar">
+        Top Problem<hr><br>
+        <div class="recenttop" id="topProblemsSidebar">Loading...</div>
+      </div>
+      <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch('topproblems.php')
+      .then(response => response.text())
+      .then(data => {
+        const container = document.getElementById('topProblemsSidebar');
+        container.innerHTML = data; // Inject HTML directly
+      })
+      .catch(err => {
+        console.error("Failed to load top problems:", err);
+        document.getElementById('topProblemsSidebar').innerHTML = "<div class='recenttop'>Failed to load</div>";
+      });
+  });
+</script>
 
-                    <label class="in1" for="description">Problem Description:</label><br>
-                    <textarea style="text-align: left;" rows="10" cols="100" class="in" id="description" name="description"placeholder="Enter hare"  required></textarea><br>
 
-                    <label class="in1" for="link">Solution Link / Article:</label><br>
-                    <input class="in" type="url" id="link" name="reference_link" placeholder="Enter hare" ><br>
-
-                    <div class="buttons">
-                    <button class="btn" type="submit">Submit</button><br>
-                    <button class="btn" type="button" id="cancelBtn">Cancel</button><br>
-                    </div>
-                    </center>
-                  </form>
-                  <script>
-                    document.getElementById("problemForm").addEventListener("submit", function(e) {
-                    e.preventDefault(); // ⛔ prevent form from going to the PHP page
-
-                    const formData = new FormData(this);
-
-                    fetch("pstcontent.php", {
-                    method: "POST",
-                    body: formData
-                  })
-                  .then(response => response.text())
-                  .then(message => {
-                  alert(message); // ✅ Show message from PHP
-                  this.reset(); // Optionally clear the form
-                  })
-                  .catch(error => {
-                  alert("Something went wrong!");
-                  console.error(error);
-                  });
-                  });
-                </script>
-
-                </div>
-              </div>
-              <script src="postform.js"></script>
-              <!--psot form-->
-              <!-- problem display -->
-              <div class="main-content">
-              <!-- problem list-->
-                <div class="sidebar">
-                  Top Problem<hr><br>
-                  <div class="recenttop">Problem 1</div>
-                  <div class="recenttop">Problem 1</div>
-                </div>
-              
-          
-                <div class="feed">
-                  <label style="font-size:24px; padding:15px;">Home</label>
-                  <div class="tag-bar">
-                  <!-- tags -->
-                    <span class="tag">#DSA</span>
-                    <span class="tag">#AI</span>
-                    <span class="tag">#Web</span>
-                    <span class="tag">#Android</span>
-                  </div><br>
-          
-                  <!-- Problem Cards dashboard -->
-                  <div>
-                    <div class="problemContainer" id="problemContainer">
-
-                    </div>
-                    <!--<div onclick="pstprb()" class="problem-card">
-                      <h3 class="pname"><u>Problem-Name</u></h3>
-                      <p class="pdiscription" >problem discription .........</p><hr>
-                      <img src="src/profile.jpg" class="probuser">
-                      <label class="username" >@username</label>
-                    </div> -->
-                    <script>
-                      function pstprb() {
-                        window.location.href = "probdetail.html"; // Replace with the URL of the page you want to navigate to
-                      }
-                      function loadProblems() {
-                          fetch("problemsindisplay.php")
-                          .then(response => response.json())
-                          .then(data => {
-                            console.log(data);
-                              const container = document.getElementById("problemContainer");
-                              container.innerHTML = "";
-
-                              data.forEach(problem => {
-                                  const card = document.createElement("div");
-                                  card.classList.add("problem-card");
-                                  console.log("Redirecting to:", `problem.php?id=${problem.content_id}`);
-                                  card.innerHTML = `
-                                      <h1 class="pname">${problem.title}</h1>
-                                      <p class="pdiscription" style="display: -webkit-box;-webkit-line-clamp: 2; font-size:16px;     /* number of lines you want */  -webkit-box-orient: vertical; overflow: hidden;  text-overflow: ellipsis;" >${problem.description}</p>
-                                      <hr />
-                                      <div class="author-info">
-                                          <span>@${problem.username}</span>
-                                          <img src="${problem.profile_picture}" alt="Avatar" class="avatar">
-                                      </div>
-                                      
-                                  `;
-                                  
-                                    card.addEventListener('click', () => {
-                                      const problemId = problem.content_id;
-                                      window.location.href = `problem.php?id=${problemId}`;
-                                    });
-
-                                  container.appendChild(card);
-                              });
-                          })
-                          .catch(err => console.error("Failed to load problems:", err));
-                      }
-
-                      window.onload = loadProblems;
-
-                    </script>
-                
-                  </div>
-              
-                
-                </div>
-          
-                <div class="activity">Your Activity<hr><br>
-                  <div class="problem-card">Solution Commit</div>
-                  <div class="problem-card">Problem Contiribution</div>
-                  <div class="problem-card">Upvoted</div>
-                </div>
-              </div>
+      <div class="feed">
+        <label style="font-size:24px; padding:15px;">Home</label>
+        <div class="tag-bar">
+          <span class="tag" onclick="filterByTag('')">#Home</span>
+          <span class="tag" onclick="filterByTag('life-hacks')">#life-hacks</span>
+          <span class="tag" onclick="filterByTag('tech')">#tech</span>
+          <span class="tag" onclick="filterByTag('bio')">#bio</span>
+          <span class="tag" onclick="filterByTag('general knowledge')">#general knowledge</span>
+          <span class="tag" onclick="filterByTag('politics')">#politics</span>
+          <span class="tag" onclick="filterByTag('global issues')">#global issues</span>
         </div>
-        <footer class="footer1">
-          <div class="footer">
-            <div class="row">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-youtube"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </div>
-            
-            <div class="row">
-              <ul>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Career</a></li>
-              </ul>
-            </div>
-            
-            <div class="row">
-              CSPSP Copyright © 2025 Inferno - All rights reserved 
-            </div>
-          </div>
-        </footer>	
-        
-  <!-- Intro Overlay 
-  <div id="intro-overlay">
-    <img src="src/image.svg" alt="Logo" class="introimg" />
-    <h2 class="cpyname">SOLUTION STORE</h2>
+
+        <div class="problemContainer" id="problemContainer"></div>
+
+        <script>
+          function loadAllProblems() {
+            fetch('problemsindisplay.php')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById("problemContainer").innerHTML = data;
+              })
+              .catch(err => {
+                console.error("Error loading all problems:", err);
+                document.getElementById("problemContainer").innerHTML = "<p>Something went wrong while loading problems.</p>";
+              });
+          }
+
+          function filterByTag(tag) {
+            if (tag === '') {
+              loadAllProblems();
+              return;
+            }
+            fetch(`filterbytags.php?tag=${encodeURIComponent(tag)}`)
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById("problemContainer").innerHTML = data;
+              })
+              .catch(err => {
+                console.error("Error loading filtered problems:", err);
+                document.getElementById("problemContainer").innerHTML = "<p>Failed to filter problems.</p>";
+              });
+          }
+
+          window.addEventListener('DOMContentLoaded', loadAllProblems);
+        </script>
+      </div>
+
+      <div class="activity">Your Activity<hr><br>
+        <div class="problem-card" ><a style="color:white;text-decoration: none;" href="profile.php" >Solution Commit</a></div>
+        <div class="problem-card"><a style="color:white;text-decoration: none;" href="profile.php" >Problem Contribution</a></div>
+        <div class="problem-card"><a style="color:white;text-decoration: none;" href="profile.php" >Upvoted</a></div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    // Fade out the intro after 3 seconds
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        const overlay = document.getElementById("intro-overlay");
-        overlay.classList.add("fade-out");
-      }, 3000); // 3 seconds
-    });
-  </script>-->
+  <footer class="footer1">
+    <div class="footer">
+      <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+      <div class="row">
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        CSPSP Copyright © 2025 Inferno - All rights reserved
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-        

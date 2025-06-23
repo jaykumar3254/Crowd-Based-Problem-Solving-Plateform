@@ -1,20 +1,18 @@
 <?php
 include 'db.php';
 
-// Join problems with users table to get username
-$sql = "SELECT p.title, p.description, u.username , p.content_id , u.profile_picture
-        FROM problems p
-        JOIN users u ON p.user_id = u.user_id
-        ORDER BY p.content_id DESC";
-
+$sql = "SELECT problems.*, users.username FROM problems JOIN users ON problems.user_id = users.user_id ORDER BY problems.content_id DESC";
 $result = $conn->query($sql);
 
-$problems = [];
-
-while ($row = $result->fetch_assoc()) {
-    $problems[] = $row;
+while($row = $result->fetch_assoc()) {
+    echo '
+    <div class="problem-card" onclick="window.location.href=\'problem.php?id=' . $row['content_id'] . '\'">
+        <h1 class="pname">' . htmlspecialchars($row['title']) . '</h1>
+        <p class="pdiscription">' . htmlspecialchars(substr($row['description'], 0, 100)) . '...</p>
+        <hr />
+        <div class="author-info">
+            <span>@' . htmlspecialchars($row['username']) . '</span>
+        </div>
+    </div>';
 }
-
-header('Content-Type: application/json');
-echo json_encode($problems);
 ?>

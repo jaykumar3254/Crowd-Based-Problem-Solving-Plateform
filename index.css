@@ -54,7 +54,9 @@ body {
     border-right: .5px solid rgb(61, 68, 78);
     transition: margin-left 0.3s;
   }
-  
+  .topproblem{
+    border-right: .5px solid rgb(61, 68, 78);
+  }
   .feed {
     width: 70%;
     padding: 20px;
@@ -87,8 +89,10 @@ body {
     background-color: #006aff;
     padding: 6px 12px;
     border-radius: 5px;
+    color: white;
+    font-size: 14px;
   }
-    
+
   .tag:hover {
     background-color: #006affd2;
     padding: 6px 12px;
@@ -163,9 +167,11 @@ body {
   margin: 10px 0;
   color: #c4c4c4;
   border-radius: 10px;
+  border: 1px solid rgb(61, 68, 78); 
 }
 .recenttop:hover{
   color: white;
+  border: 1px solid rgb(61, 68, 78); 
 }
 
 .footer1{
