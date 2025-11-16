@@ -1,9 +1,9 @@
-<span style="font-size:24px">**Community Based Platfrom**</span>
+**Community Based Platfrom**
 
 Crowdsource Community Platform is a web application designed to let users post problems, share solutions, and upvote helpful responses within a collaborative community. Built using PHP, MySQL, HTML, CSS, and JavaScript, it features secure user registration, login, personalized dashboards, and easy-to-navigate content management. This project aims to empower students, hobbyists, and professionals to engage, share knowledge, and solve everyday challenges together.
 
-How to Run Locally
-Install XAMPP (or any Apache + MySQL stack).
+**How to Run Locally
+Install XAMPP (or any Apache + MySQL stack).**
 
 Clone or download this repository.
 
