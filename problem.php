@@ -12,10 +12,10 @@ $user_id = $_SESSION['user_id'] ?? null;
 
 // Fetch problem and poster's user info
 $stmt = $conn->prepare("
-    SELECT p.*, u.username, u.profile_picture
+    SELECT p.*, u.username, u.profilepicture
     FROM problems p
     JOIN users u ON p.user_id = u.user_id
-    WHERE p.content_id = ?
+    WHERE p.contentid = ?
 ");
 $stmt->bind_param("i", $content_id);
 $stmt->execute();
@@ -29,14 +29,14 @@ $problem = $result->fetch_assoc();
 
 // Fetch community solutions with upvotes and user info
 $sql2 = "
-    SELECT s.solution_id, s.title AS sol_title, s.description AS sol_desc,
-           s.media_url, s.solution_link, u.username AS sol_user,
-           (SELECT COUNT(*) FROM solution_upvotes su WHERE su.solution_id = s.solution_id) AS upvotes,
-           EXISTS (SELECT 1 FROM solution_upvotes su WHERE su.solution_id = s.solution_id AND su.user_id = ?) AS already_upvoted
+    SELECT s.solutionid, s.title AS sol_title, s.description AS sol_desc,
+           s.mediaurl, s.solutionlink, u.username AS sol_user,
+           (SELECT COUNT(*) FROM solution_upvotes su WHERE su.solutionid = s.solutionid) AS upvotes,
+           EXISTS (SELECT 1 FROM solution_upvotes su WHERE su.solutionid = s.solutionid AND su.user_id = ?) AS already_upvoted
     FROM solutions s
-    JOIN users u ON s.user_id = u.user_id
-    WHERE s.content_id = ?
-    ORDER BY upvotes DESC, s.solution_id DESC
+    JOIN users u ON s.userid = u.user_id
+    WHERE s.contentid = ?
+    ORDER BY upvotes DESC, s.solutionid DESC
 ";
 $stmt2 = $conn->prepare($sql2);
 $stmt2->bind_param("ii", $user_id, $content_id);
@@ -74,7 +74,7 @@ $solutions = $stmt2->get_result();
               </div>
               <div class="nav-right">
                 <button class="post-btn" id="postBtn">Post</button>
-                <a id="profile-link" href="#">
+                <a id="profilelink" href="#">
                   <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
                 </a>
 
@@ -85,7 +85,7 @@ $solutions = $stmt2->get_result();
                     .then(data => {
                       if (data.avatar) {
                         document.getElementById('avatar').src = data.avatar;
-                        document.getElementById('profile-link').href = 'profile.php';
+                        document.getElementById('profilelink').href = 'profile.php';
                       }
                     })
                     .catch(err => {
@@ -111,7 +111,7 @@ $solutions = $stmt2->get_result();
         <p><a href="<?= htmlentities($problem['reference_link']) ?>" target="_blank">Reference</a></p>
       <?php endif; ?>
       <div class="author-info">
-        <img src="<?= htmlentities($problem['profile_picture']) ?>" alt="@<?= htmlentities($problem['username']) ?>" class="avatar">
+        <img src="<?= htmlentities($problem['profilepicture']) ?>" alt="@<?= htmlentities($problem['username']) ?>" class="avatar">
         <span>@<?= htmlentities($problem['username']) ?></span>
       </div>
     </section>
@@ -123,20 +123,22 @@ $solutions = $stmt2->get_result();
       <?php endif; ?>
       <?php while ($s = $solutions->fetch_assoc()): ?>
         <div class="problem-card">
-          <h4><?= htmlentities($s['sol_title']) ?> (<?= $s['upvotes'] ?> ↑)</h4>
+          <h4><?= htmlentities($s['sol_title']) ?> </h4>
+          
           <p><?= nl2br(htmlentities($s['sol_desc'])) ?></p>
-          <?php if ($s['media_url']): ?>
-            <p><img src="<?= htmlentities($s['media_url']) ?>" alt="Solution Media" style="max-width:200px;"></p>
+          <?php if ($s['mediaurl']): ?>
+            <p><img src="<?= htmlentities($s['mediaurl']) ?>" alt="Solution Media" style="max-width:200px;"></p>
           <?php endif; ?>
-          <?php if ($s['solution_link']): ?>
-            <p><a href="<?= htmlentities($s['solution_link']) ?>" target="_blank">View Solution</a></p>
+          <?php if ($s['solutionlink']): ?>
+            <p><a class="post-btn" href="<?= htmlentities($s['solutionlink']) ?>" target="_blank" >View Solution</a></p>
           <?php endif; ?>
           <p>By: @<?= htmlentities($s['sol_user']) ?></p>
+          <h3>&#9829 <?= $s['upvotes'] ?></h3>
 
           <!-- ✅ Upvote Button -->
           <?php if ($user_id): ?>
             <form method="POST" action="upvotes.php" style="margin-top:10px;">
-              <input type="hidden" name="solution_id" value="<?= $s['solution_id'] ?>">
+              <input type="hidden" name="solutionid" value="<?= $s['solutionid'] ?>">
               <button class="post-btn" <?= $s['already_upvoted'] ? 'disabled' : '' ?>>
                 <?= $s['already_upvoted'] ? 'Upvoted' : '⬆Upvote' ?>
               </button>

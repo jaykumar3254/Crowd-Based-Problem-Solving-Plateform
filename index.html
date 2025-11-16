@@ -54,7 +54,7 @@
       <div></div>
       <div class="nav-right">
         <button class="post-btn" id="postBtn">Post</button>
-        <a id="profile-link" href="#">
+        <a id="profilelink" href="#">
           <img id="avatar" src="src/profile.jpg" alt="Avatar" class="profile-pic">
         </a>
         <a href="logout.php" class="logout-button">Logout</a>
@@ -64,7 +64,7 @@
             .then(data => {
               if (data.avatar) {
                 document.getElementById('avatar').src = data.avatar;
-                document.getElementById('profile-link').href = 'profile.php';
+                document.getElementById('profilelink').href = 'profile.php';
               }
             })
             .catch(err => console.error("Failed to load profile image:", err));

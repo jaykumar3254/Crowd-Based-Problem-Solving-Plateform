@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 $host = "localhost";
 $user = "root";
 $pass = ""; // Set your DB password
-$db = "cspsp"; // Change if needed
+$db = "crowdsource"; // Change if needed
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -47,7 +47,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
 }
 */
 
-$stmt = $conn->prepare("INSERT INTO problems (title, description, reference_link, tags, user_id, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+$stmt = $conn->prepare("INSERT INTO problems (title, description, reference_link, tags, user_id, createdat) VALUES (?, ?, ?, ?, ?, NOW())");
 $stmt->bind_param("ssssi", $title, $description, $reference_link, $tag, $user_id);
 
 if ($stmt->execute()) {

@@ -8,10 +8,10 @@ if (!$conn) {
 
 // Fetch all problems by solution count (no limit)
 $sql = "
-  SELECT p.content_id, p.title, COUNT(s.solution_id) AS solution_count 
+  SELECT p.contentid, p.title, COUNT(s.solutionid) AS solution_count 
   FROM problems p 
-  LEFT JOIN solutions s ON p.content_id = s.content_id 
-  GROUP BY p.content_id, p.title 
+  LEFT JOIN solutions s ON p.contentid = s.contentid 
+  GROUP BY p.contentid, p.title 
   ORDER BY solution_count DESC
 ";
 
@@ -26,7 +26,7 @@ if (!$result) {
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $title = htmlspecialchars($row['title']);
-        $id = urlencode($row['content_id']);
+        $id = urlencode($row['contentid']);
 
         echo '
         <div  style=" border-bottom: 1px solid rgb(61, 68, 78);  border-radius:0px; margin:15px; padding:5px;">

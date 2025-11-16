@@ -7,7 +7,7 @@ include 'db.php';
 $content_sql = "SELECT c.*, u.username, u.profile_picture 
                 FROM contents c
                 JOIN users u ON c.user_id = u.user_id
-                ORDER BY c.created_at DESC";
+                ORDER BY c.createdat DESC";
 
 $content_result = $conn->query($content_sql);
 
@@ -25,10 +25,10 @@ while ($content = $content_result->fetch_assoc()) {
         FROM solutions s
         JOIN users u ON s.user_id = u.user_id
         WHERE s.content_id = ?
-        ORDER BY upvotes DESC, s.created_at DESC";
+        ORDER BY upvotes DESC, s.createdat DESC";
 
     $stmt = $conn->prepare($solution_sql);
-    $stmt->bind_param("i", $content['content_id']);
+    $stmt->bind_param("i", $content['contentid']);
     $stmt->execute();
     $solutions = $stmt->get_result();
 

@@ -14,7 +14,7 @@ $media_url = $_POST['media_url'];
 $solution_link = $_POST['solution_link'];
 $user_id = $_SESSION['user_id'];
 
-$sql = "INSERT INTO solutions (content_id, user_id, title, description, media_url, solution_link)
+$sql = "INSERT INTO solutions (contentid, userid, title, description, mediaurl, solutionlink)
         VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("iissss", $content_id, $user_id, $title, $description, $media_url, $solution_link);

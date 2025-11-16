@@ -13,7 +13,7 @@ include 'db.php'; // Make sure this connects to your database
 $user_id = $_SESSION['user_id'];
 
 // Get user profile picture from DB
-$stmt = $conn->prepare("SELECT profile_picture FROM users WHERE user_id = ?");
+$stmt = $conn->prepare("SELECT profilepicture FROM users WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $stmt->bind_result($profile_picture);
